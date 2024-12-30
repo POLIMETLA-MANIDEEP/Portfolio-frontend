@@ -1,5 +1,4 @@
-// src/components/AboutMe.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import aboutImg from '../assets/about.jpg';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -9,6 +8,12 @@ const AboutMe = () => {
     triggerOnce: true, // Only trigger the animation once
     threshold: 0.2,    // Trigger animation when 20% of the section is visible
   });
+
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleMoreInfo = () => {
+    setShowMore(!showMore);
+  };
 
   return (
     <div className="border-b border-neutral-900 pb-4">
@@ -80,6 +85,36 @@ const AboutMe = () => {
                 </p>
               </div>
             </motion.div>
+
+            {/* Know More Button */}
+            <div className="mt-4">
+              <motion.button
+                onClick={toggleMoreInfo}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="px-6 py-2 bg-purple-500 text-white rounded-lg shadow-lg transition-transform duration-300"
+              >
+                {showMore ? 'Show Less' : 'Know More'}
+              </motion.button>
+            </div>
+
+            {/* Additional Info Section */}
+            {showMore && (
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="mt-6 p-6 bg-neutral-800 rounded-lg shadow-lg"
+              >
+                <p className="text-sm text-neutral-400">
+                  I am a passionate and dedicated <strong>Fresher Full Stack Developer</strong> skilled in creating interactive web applications. 
+                  Proficient in front-end technologies like <strong>React.js</strong>, <strong>JavaScript</strong>, and <strong>CSS</strong>, 
+                  along with backend development using <strong>Node.js</strong> and <strong>Express.js</strong>. 
+                  I also have hands-on experience in <strong>database management</strong> and strive to deliver scalable and user-centric solutions. 
+                  Eager to collaborate on challenging projects and continuously grow in this dynamic field.
+                </p>
+              </motion.div>
+            )}
           </div>
         </div>
       </div>

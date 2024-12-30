@@ -74,7 +74,7 @@ export const PROJECTS = [
     title: "Student Portfolio",
     image: project9,
     description:
-      "A Attractive Portfolo describing my Technlogies and Projects.Also having Feature to contact Me using viewr-details.Hosted the website using Netlify",
+      "A Attractive Portfolo describing my Technlogies and Projects.Also having Feature to contact Me using viewr-details.Hosted the website using Netlify. Link: https://pm-portfolio-site.netlify.app",
     technologies: ["HTML", "CSS", "React", "Express", "Mongodb", "NodeJS"],
   },
 ];
